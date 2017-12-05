@@ -1,5 +1,6 @@
 #include "BoggleFunction.h"
-                  
+ #include <stdio.h>
+
 int main()
 {
     char matrix[MATRIX_SIZE][MATRIX_SIZE] =
@@ -9,5 +10,7 @@ int main()
         {'E','S','M','E'},
         {'L','L','P','N'}
     };
-    return printWords(matrix);;
+    int count = printWords(matrix);
+    printf("amount of words: %d",count);
+    return 0;
 }

@@ -3,6 +3,7 @@
 #include <string.h>
 #include "BoggleFunction.h"
 
+static int count = 0;
 bool isWord(char* s){
 
 		return (!strcmp(s,"CAT") |
@@ -36,7 +37,10 @@ void findWords(char matrix[MATRIX_SIZE][MATRIX_SIZE], bool visit[MATRIX_SIZE][MA
         word[k] = matrix[i][j];
         word[k+1] = '\0';
         if(isWord(word))
+        {
             printf("%s\n",word);
+            count = count + 1;
+        }
         findWords(matrix,visit,i-1,j,k+1,word);
         findWords(matrix,visit,i+1,j,k+1,word);
         findWords(matrix,visit,i,j-1,k+1,word);
@@ -53,7 +57,7 @@ int printWords(char A[MATRIX_SIZE][MATRIX_SIZE])
     {
         {false,false,false,false}
     };
-    int i , j , k = 0 ;
+    int i , j , k = 0; 
     for(i = 0 ; i < MATRIX_SIZE ; i++)
         {
             for(j = 0 ; j < MATRIX_SIZE ; j++)
@@ -61,5 +65,5 @@ int printWords(char A[MATRIX_SIZE][MATRIX_SIZE])
                 findWords(A, visit, i , j , k , word);
             }
         }
-    return 0;
+    return count;
 } 

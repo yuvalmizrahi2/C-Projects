@@ -1,5 +1,5 @@
-#include "BoggleFunction.h"
- #include <stdio.h>
+#include "ex2function.h"
+#include <stdio.h>
 
 int main()
 {

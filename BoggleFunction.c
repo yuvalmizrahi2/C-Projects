@@ -31,102 +31,6 @@ bool isWord(char* s)
 			!strcmp(s,"RAKE") );
 
 }
-void findWordsDown(char matrix[MATRIX_SIZE][MATRIX_SIZE])
-{
-    k++;
-    i++;
-    if(i >= 0 && j >= 0 && i < MATRIX_SIZE && j < MATRIX_SIZE &&  visit[i][j] != true )
-    {
-        visit[i][j] = true;
-        word[k] = matrix[i][j];
-        word[k+1] = '\0';
-        if(isWord(word))
-        {
-            printf("%s\n",word);
-            count = count + 1;
-        }
-        findWordsUp(matrix);
-        findWordsDown(matrix);
-        findWordsLeft(matrix);
-        findWordsRight(matrix);
-        visit[i][j] = false;
-        word[k] = '\0';
-    }
-    i--;
-    k--;
-}
-void findWordsLeft(char matrix[MATRIX_SIZE][MATRIX_SIZE])
-{
-    k++;
-    j--;
-    if(i >= 0 && j >= 0 && i < MATRIX_SIZE && j < MATRIX_SIZE &&  visit[i][j] != true )
-    {
-        visit[i][j] = true;
-        word[k] = matrix[i][j];
-        word[k+1] = '\0';
-        if(isWord(word))
-        {
-            printf("%s\n",word);
-            count = count + 1;
-        }
-        findWordsUp(matrix);
-        findWordsDown(matrix);
-        findWordsLeft(matrix);
-        findWordsRight(matrix);
-        visit[i][j] = false;
-        word[k] = '\0';
-    }
-    j++;
-    k--;
-}
-void findWordsRight(char matrix[MATRIX_SIZE][MATRIX_SIZE])
-{
-    k++;
-    j++;
-    if(i >= 0 && j >= 0 && i < MATRIX_SIZE && j < MATRIX_SIZE &&  visit[i][j] != true )
-    {
-        visit[i][j] = true;
-        word[k] = matrix[i][j];
-        word[k+1] = '\0';
-        if(isWord(word))
-        {
-            printf("%s\n",word);
-            count = count + 1;
-        }
-        findWordsUp(matrix);
-        findWordsDown(matrix);
-        findWordsLeft(matrix);
-        findWordsRight(matrix);
-        visit[i][j] = false;
-        word[k] = '\0';
-    }
-    j--;
-    k--;    
-}    
-void findWordsUp(char matrix[MATRIX_SIZE][MATRIX_SIZE])
-{
-    k++;
-    i--;
-    if(i >= 0 && j >= 0 && i < MATRIX_SIZE && j < MATRIX_SIZE &&  visit[i][j] != true )
-    {
-        visit[i][j] = true;
-        word[k] = matrix[i][j];
-        word[k+1] = '\0';
-        if(isWord(word))
-        {
-            printf("%s\n",word);
-            count = count + 1;
-        }
-        findWordsUp(matrix);
-        findWordsDown(matrix);
-        findWordsLeft(matrix);
-        findWordsRight(matrix);
-        visit[i][j] = false;
-        word[k] = '\0';
-    }    
-    i++; 
-    k--;   
-}
 void findWords(char matrix[MATRIX_SIZE][MATRIX_SIZE])
 {
     if(i >= 0 && j >= 0 && i < MATRIX_SIZE && j < MATRIX_SIZE &&  visit[i][j] != true )
@@ -134,15 +38,23 @@ void findWords(char matrix[MATRIX_SIZE][MATRIX_SIZE])
         visit[i][j] = true;
         word[k] = matrix[i][j];
         word[k+1] = '\0';
+        k++;
         if(isWord(word))
         {
             printf("%s\n",word);
             count = count + 1;
         }
-        findWordsUp(matrix);
-        findWordsDown(matrix);
-        findWordsLeft(matrix);
-        findWordsRight(matrix);
+        i--;
+        findWords(matrix);
+        i = i + 2;
+        findWords(matrix);
+        i--;
+        j--;
+        findWords(matrix);
+        j = j + 2;
+        findWords(matrix);
+        j--;
+        k--;
         visit[i][j] = false;
         word[k] = '\0';
     }

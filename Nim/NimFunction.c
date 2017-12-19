@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include "ex1function.h"
+#include "NimFunction.h"
 #include <ctype.h>
 #include <string.h>
 #include<stdlib.h>
-#include "ex1function.h"
 
 void swap(int *xp, int *yp)
 {

@@ -1,4 +1,4 @@
-#include "ex2function.h"
+#include "Four_in_a_RowFunction.h"
 #include <stdio.h>
 
 int main()

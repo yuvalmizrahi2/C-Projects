@@ -1,4 +1,4 @@
-#include "ex1function.h"
+#include "NimFunction.h"
 #include <stdio.h>
 
 int main()

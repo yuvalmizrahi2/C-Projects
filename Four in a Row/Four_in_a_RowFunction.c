@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-#include "ex2function.h"
+#include "Four_in_a_RowFunction.h"
 static int count = 0 , k = 0 , i , j;
 static char word[MATRIX_SIZE*MATRIX_SIZE+1] = "";
 static bool visit[MATRIX_SIZE][MATRIX_SIZE];

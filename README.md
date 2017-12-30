@@ -1,14 +1,15 @@
-**C Projects**
-----------
-Tasks in c programming course.
-----------
-**Author:**
--------
-Yuval Mizrahi
-----------
-**Introduction:**
--------
-**Nim:**
+C_Prgramming
+=
+Tasks in c programming course. 
+
+Author:
+--
+Kineret Ruth Nahary
+
+Introduction:
+--
+
+Nim:
 
 The famous game Min.
 The game is against the computer.
